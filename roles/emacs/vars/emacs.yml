@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+git_repo:
+  provider: "github"
+  owner: "emacs-mirror"
+  name: "emacs"
+  tags: ["emacs-29.4"]
+
+build:
+  enable: true
+  type: "bin"
+  flags: >-
+    --with-tree-sitter
+    --with-native-compilation
+    --with-json
+    --with-mailutils
+    --with-jpeg
+    --with-png
+    --with-rsvg
+    --with-tiff
+    --with-gif
+    --with-xft
+    --with-xml2
+    --without-ns
+    --with-gnutls
+    --with-imagemagick
+    --with-xwidgets
+    --with-x
+    --with-modules
+    --with-cairo
+    --with-harfbuzz
+  script: "make"
+  checkinstall: true
+  update_alternatives: true
+  bashrc:
+    enabled: false
+    name: "{{ git_repo.name }}"
+    marker: "# {mark} Ansible - {{ git_repo.name }}"
+#   block: |
+#     export PATH="{{ build_paths.install_path }}/{{ git_repo.name }}/{{ tags }}/bin/:$PATH"
+
+pkgs:
+  apt:
+    [
+      build-essential,
+      cmake,
+      git,
+      ispell,
+      libtool,
+      libtool-bin,
+      aspell-en,
+      npm,
+      mu4e,
+      isync,
+      msmtp,
+      libclang-dev,
+      golang,
+      gopls,
+      rtags,
+      universal-ctags,
+      global,
+      pandoc,
+      grip,
+      ansible-lint,
+      mu4e,
+      isync,
+      fonts-noto-color-emoji,
+      python3-pretty-yaml
+    ]
+  dnf: []
+  pacman: []

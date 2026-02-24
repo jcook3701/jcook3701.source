@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+- name: Collect running user facts
+  ansible.builtin.include_tasks: utilities/sudo_user_facts.yml
+  when: sudo_user is not defined
+
+- name: Install and setup nvm
+  ansible.builtin.include_tasks:
+    file: pkgs-software-development/nvm/nvm-install.yml
+
+- name: Install and setup rust
+  ansible.builtin.include_tasks:
+    file: pkgs-software-development/rust/rust-install.yml
+
+- name: Install mdopen
+  ansible.builtin.include_tasks:
+    file: pkgs-software-development/rust/mdopen-install.yml
+
+- name: Setup Authinfo
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: authinfo-config.yml
+
+- name: Configure emacs for current ansible user
+  ansible.builtin.git:
+    repo: "git@github.com:jcook3701/emacs_configuration.git"
+    dest: "{{ sudo_user_home }}/.emacs.d/"
+    accept_hostkey: true
+    key_file: "{{ sudo_user_home }}/.ssh/id_rsa"
+    version: "master"
+    update: true

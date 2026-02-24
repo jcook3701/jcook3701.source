@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+git_repo:
+  provider: "github"
+  owner: "deskflow"
+  name: "deskflow"
+  # tags: ["v1.17.2"]
+
+build:
+  enabled: true
+  type: "bin"
+  script: "cmake-make"
+  checkinstall: true
+
+bashrc:
+  enabled: true
+
+pkgs:
+  apt:
+    [
+      build-essential,
+      cmake,
+      ninja-build,
+      xorg-dev,
+      libx11-dev,
+      libxtst-dev,
+      libssl-dev,
+      libglib2.0-dev,
+      libgdk-pixbuf-2.0-dev,
+      libnotify-dev,
+      libxkbfile-dev,
+      qt6-base-dev,
+      qt6-tools-dev,
+      libgtk-3-dev,
+      libgtest-dev,
+      libgmock-dev,
+      libpugixml-dev,
+      libei-dev,
+      libportal-dev,
+      libtomlplusplus-dev,
+      libcli11-dev,
+    ]
+  dnf: []
+  pacman: []

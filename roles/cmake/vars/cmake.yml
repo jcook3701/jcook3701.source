@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+git_repo:
+  provider: "github"
+  owner: "Kitware"
+  name: "CMake"
+  tags: ["v3.30.6"]
+
+build:
+  enabled: true
+  script: "cmake-build"
+  checkinstall: true
+
+pkgs:
+  apt: [build-essential, cmake, git]
+  dnf: []
+  pacman: []

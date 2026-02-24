@@ -21,6 +21,15 @@ parent: jcook3701.source
 * `infrastructure` - 
 
 
+* `v6.7.3` - 
+
+
+* `emacs-29.4` - 
+
+
+* `v3.30.6` - 
+
+
 
 Documentation generated using: [Ansible-autodoc](https://github.com/AndresBott/ansible-autodoc)
 

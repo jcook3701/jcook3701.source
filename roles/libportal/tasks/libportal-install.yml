@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
+# SPDX-License-Identifier: AGPL-3.0-or-later
+---
+- name: Collect running user facts
+  ansible.builtin.include_tasks: utilities/sudo_user_facts.yml
+  when: sudo_user is not defined
+
+- name: Import libportal vars
+  ansible.builtin.include_vars:
+    file: "pkgs-software-libs/pkgs-source/libportal/libportal.yml"
+
+- name: Source Package Build Initialization Routine
+  ansible.builtin.include_tasks: utilities/pkg-source-build-init-routine.yml
+  when: sudo_user is defined
