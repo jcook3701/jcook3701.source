@@ -2,25 +2,32 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
 - name: Collect running user facts
-  ansible.builtin.include_tasks: utilities/sudo_user_facts.yml
+  ansible.builtin.include_role:
+    name: jcook3701.utils.general
+    task_from: sudo_user_facts.yml
   when: sudo_user is not defined
 
 - name: Install qtbase dependency
-  ansible.builtin.include_tasks:
-    file: pkgs-software-libs/pkgs-source/qtbase/qtbase-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.source.qtbase
+    tasks_from: qtbase-install.yml
 
 - name: Install libportal dependency
-  ansible.builtin.include_tasks:
-    file: pkgs-software-libs/pkgs-source/libportal/libportal-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.source.libportal
+    tasks_from: libportal-install.yml
 
 - name: Install libei dependency
-  ansible.builtin.include_tasks:
-    file: pkgs-software-libs/pkgs-source/libei/libei-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.source.libei
+    tasks_from: libei-install.yml
 
 - name: Import deskflow vars
   ansible.builtin.include_vars:
-    file: "pkgs-gui/pkgs-source/deskflow/deskflow.yml"
+    file: "deskflow.yml"
 
 - name: Source Package Build Initialization Routine
-  ansible.builtin.include_tasks: utilities/pkg-source-build-init-routine.yml
+  ansible.builtin.include_role:
+    name: jcook3701.utils.autobuild
+    tasks_from: pkg-source-build-init-routine.yml
   when: sudo_user is defined
