@@ -1,18 +1,18 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+libei_git_repo:
   provider: "gitlab-freedesktop"
   owner: "libinput"
   name: "libei"
   tags: [] # defaults to latest tag or master workspace
 
-build:
+libei_build:
   enabled: true
   script: "meson-ninja"
   checkinstall: true
 
-pkgs:
+libei_pkgs:
   apt:
     [
       build-essential,

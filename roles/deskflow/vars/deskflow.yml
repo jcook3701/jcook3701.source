@@ -1,22 +1,22 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+deskflow_git_repo:
   provider: "github"
   owner: "deskflow"
   name: "deskflow"
   # tags: ["v1.17.2"]
 
-build:
+deskflow_build:
   enabled: true
   type: "bin"
   script: "cmake-make"
   checkinstall: true
 
-bashrc:
+deskflow_bashrc:
   enabled: true
 
-pkgs:
+deskflow_pkgs:
   apt:
     [
       build-essential,

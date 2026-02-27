@@ -1,25 +1,25 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+act_git_repo:
   provider: "github"
   owner: "nektos"
   name: "act"
 
-build:
+act_build:
   enable: true
   flags: ""
   script: "make"
   checkinstall: true
 
-bashrc:
+act_bashrc:
   enabled: true
   name: "{{ git_repo.name }}"
   marker: "# {mark} Ansible - {{ git_repo.name }}"
 #   block: |
 #     export PATH="{{ build_paths.install_path }}/{{ git_repo.name }}/{{  }}/bin/:$PATH"
 
-pkgs:
+act_pkgs:
   apt: [build-essential, git]
   dnf: []
   pacman: []

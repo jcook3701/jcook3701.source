@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+meson_install_git_repo:
   provider: "github"
   owner: "keithbowes"
   name: "meson-install"
 #  tags: [] # defaults to latest tag or master workspace
 
-build:
+meson_install_build:
   enabled: false
   script: "None"
   bashrc:
@@ -15,3 +15,8 @@ build:
     block: |
       export PATH="$HOME/{{ build_paths.home }}/{{ git_repo.name }}/:$PATH"
   checkinstall: false
+
+meson_install_pkgs:
+  apt: []
+  dnf: []
+  pacman: []

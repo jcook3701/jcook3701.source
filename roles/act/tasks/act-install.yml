@@ -13,6 +13,6 @@
 
 - name: Source Package Build Initialization Routine
   ansible.builtin.include_role:
-    name: jcook3701.utils.general
+    name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
   when: sudo_user is defined

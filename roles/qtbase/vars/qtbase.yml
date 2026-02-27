@@ -1,18 +1,18 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+qtbase_git_repo:
   provider: "github"
   git_owner: "qt"
   name: "qtbase"
   tags: ["v6.7.3"] # defaults to latest tag or master workspace
 
-build:
+qtbase_build:
   enabled: true
   script: ""
   checkinstall: true
 
-pkgs:
+qtbase_pkgs:
   apt: [
     build-essential,
     cmake,

@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+emacs_git_repo:
   provider: "github"
   owner: "emacs-mirror"
   name: "emacs"
   tags: ["emacs-29.4"]
 
-build:
+emacs_build:
   enable: true
   type: "bin"
   flags: >-
@@ -40,7 +40,7 @@ build:
 #   block: |
 #     export PATH="{{ build_paths.install_path }}/{{ git_repo.name }}/{{ tags }}/bin/:$PATH"
 
-pkgs:
+emacs_pkgs:
   apt:
     [
       build-essential,

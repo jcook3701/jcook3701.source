@@ -1,19 +1,19 @@
 # SPDX-FileCopyrightText: Copyright © 2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
-git_repo:
+tree_sitter_git_repo:
   provider: "github"
   owner: "tree-sitter"
   name: "tree-sitter"
   tags: [] # defaults to latest tag or master workspace
 
-build:
+tree_sitter_build:
   enable: true
   script: "make"
   checkinstall: true
   library: true
 
-pkgs:
+tree_sitter_pkgs:
   apt: [build-essential, cmake, git]
   dnf: []
   pacman: []

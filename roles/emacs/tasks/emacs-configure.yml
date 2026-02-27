@@ -2,24 +2,29 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ---
 - name: Collect running user facts
-  ansible.builtin.include_tasks: utilities/sudo_user_facts.yml
+  ansible.builtin.include_role:
+    name: jcook3701.utils.general
+    task_from: sudo_user_facts.yml
   when: sudo_user is not defined
 
 - name: Install and setup nvm
-  ansible.builtin.include_tasks:
-    file: pkgs-software-development/nvm/nvm-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.pkgs.nvm
+    task_from: nvm-install.yml
 
 - name: Install and setup rust
-  ansible.builtin.include_tasks:
-    file: pkgs-software-development/rust/rust-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.pkgs.rust
+    task_from: rust-install.yml
 
 - name: Install mdopen
-  ansible.builtin.include_tasks:
-    file: pkgs-software-development/rust/mdopen-install.yml
+  ansible.builtin.include_role:
+    name: jcook3701.pkgs.mdopen
+    task_from: mdopen-install.yml
 
 - name: Setup Authinfo
   ansible.builtin.include_role:
-    name: common
+    name: jcook3701.homelab.common
     tasks_from: authinfo-config.yml
 
 - name: Configure emacs for current ansible user
