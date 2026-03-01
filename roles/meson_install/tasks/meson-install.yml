@@ -15,6 +15,10 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ meson_install_git_repo }}"
+    autobuild_build: "{{ meson_install_build }}"
+    autobuild_pkgs: "{{ meson_install_pkgs }}"
   when: sudo_user is defined
 
 # TODO: Move to /usr/local/bin

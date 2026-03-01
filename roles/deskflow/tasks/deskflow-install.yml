@@ -30,4 +30,8 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     tasks_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ deskflow_git_repo }}"
+    autobuild_build: "{{ deskflow_build }}"
+    autobuild_pkgs: "{{ deskflow_pkgs }}"
   when: sudo_user is defined

@@ -20,4 +20,8 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ emacs_git_repo }}"
+    autobuild_build: "{{ emacs_build }}"
+    autobuild_pkgs: "{{ emacs_pkgs }}"
   when: sudo_user is defined

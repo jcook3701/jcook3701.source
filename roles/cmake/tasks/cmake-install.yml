@@ -15,4 +15,8 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ cmake_git_repo }}"
+    autobuild_build: "{{ cmake_build }}"
+    autobuild_pkgs: "{{ cmake_pkgs }}"
   when: sudo_user is defined

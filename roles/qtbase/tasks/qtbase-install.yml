@@ -15,4 +15,8 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ qtbase_git_repo }}"
+    autobuild_build: "{{ qtbase_build }}"
+    autobuild_pkgs: "{{ qtbase_pkgs }}"
   when: sudo_user is defined

@@ -15,4 +15,8 @@
   ansible.builtin.include_role:
     name: jcook3701.utils.autobuild
     task_from: pkg-source-build-init-routine.yml
+  vars:
+    autobuild_git_repo: "{{ libportal_git_repo }}"
+    autobuild_build: "{{ libportal_build }}"
+    autobuild_pkgs: "{{ libportal_pkgs }}"
   when: sudo_user is defined
